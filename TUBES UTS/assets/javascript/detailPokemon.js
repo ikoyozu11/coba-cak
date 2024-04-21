@@ -39,9 +39,7 @@ function showDetail(pokemon) {
     ${stats
       .map((baseStat) => {
         const percentage = (baseStat.base_stat / 252) * 100;
-        return `<li>${baseStat.stat.name}: <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="${baseStat.base_stat}" aria-valuemin="0" aria-valuemax="720">
-                <div class="progress-bar" style="width: ${percentage}%">${baseStat.base_stat}</div>
-              </div></li>`;
+        return `<li>${baseStat.stat.name}: ${baseStat.base_stat}</li>`;
       })
       .join("")}
   </ul>

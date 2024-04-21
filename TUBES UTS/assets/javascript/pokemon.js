@@ -1,47 +1,71 @@
 const endpoint = "https://pokeapi.co/api/v2/pokemon?limit=24";
-const spinnersContainer = document.getElementById("spinner-container");
-spinnersContainer.style.display = "flex";
-fetch(endpoint)
-  .then((response) => response.json())
-  .then((data) => {
-    let result = data.results;
-    let pokemonDataArray = [];
-    let cards = ""; // Variabel untuk menampung hasil dari showCards
-    result.forEach((pokemon) => {
-      let pokemonUrl = pokemon.url;
-      fetch(pokemonUrl)
-        .then((response) => response.json())
-        .then((pokemon) => {
-          pokemonDataArray.push(pokemon);
-          if (pokemonDataArray.length === result.length) {
-            pokemonDataArray.sort((a, b) => a.id - b.id);
+const spinnerContainer = document.getElementById("loader");
+const previousButton = document.getElementById("previous-button");
+const nextButton = document.getElementById("next-button");
+const pokemonListElement = document.getElementById("pokemon-list");
 
-            spinnersContainer.style.display = "none";
-            showCards(pokemonDataArray);
-          }
-        })
-        .catch((error) => {
-          console.error("Gagal melakukan permintaan:", error);
-        });
+function fetchPokemon(url) {
+  spinnerContainer.style.display = "flex"; // Show loading spinner
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      spinnerContainer.style.display = "none"; // Hide loading spinner when data is loaded
+      const pokemonDataArray = data.results;
+      const nextUrl = data.next;
+      const previousUrl = data.previous;
+
+      previousButton.style.visibility = previousUrl ? "visible" : "hidden"; // Control visibility of previous button
+      nextButton.style.visibility = nextUrl ? "visible" : "hidden"; // Control visibility of next button
+
+      // Store the URLs as data attributes of the buttons
+      previousButton.setAttribute("data-url", previousUrl);
+      nextButton.setAttribute("data-url", nextUrl);
+
+      // Fetch details for each Pokémon
+      return Promise.all(
+        pokemonDataArray.map((pokemon) =>
+          fetch(pokemon.url).then((res) => res.json())
+        )
+      );
+    })
+    .then((pokemonDetails) => {
+      pokemonDetails.sort((a, b) => a.id - b.id); // Sort Pokémon by ID
+      showCards(pokemonDetails); // Display all Pokémon cards
+    })
+    .catch((error) => {
+      console.error("Failed to fetch data:", error);
+      spinnerContainer.style.display = "none"; // Hide spinner in case of error
     });
-  });
+}
 
 function showCards(pokemonArray) {
-  pokemonArray.forEach((pokemonData) => {
-    let pokemonImage = pokemonData.sprites.front_default;
-    let pokemonName = pokemonData.name;
-    let pokemonId = pokemonData.id;
-    console.log(pokemonName);
-    document.getElementById("pokemon-list").innerHTML += `
-    <a href="detailPokemon.html?id=${pokemonId}"
-    <div class="col-lg-2 col-md-3 col-sm-4 mb-4">
-      <div class="card">
-        <img src="${pokemonImage}" class="card-img-top mx-auto" alt="${pokemonName}" style="width: 150px">
-        <div class="card-body">
-        <h5 class="text-center card-title">${pokemonName}</h5>
+  pokemonListElement.innerHTML = ""; // Clear existing content
+  pokemonArray.forEach((pokemon) => {
+    let pokemonImage = pokemon.sprites.front_default;
+    let pokemonName = pokemon.name;
+    let pokemonId = pokemon.id;
+    pokemonListElement.innerHTML += `
+      <a href="detailPokemon.html?id=${pokemonId}" class="card-link">
+        <div class="card">
+          <img src="${pokemonImage}" alt="${pokemonName}" style="width: 150px">
+          <div class="container">
+            <h5>${pokemonName}</h5>
+          </div>
         </div>
-      </div>
-    </div></a> 
-    `;
+      </a>`;
   });
 }
+
+// Event handlers for pagination
+previousButton.onclick = () => {
+  const url = previousButton.getAttribute("data-url");
+  if (url) fetchPokemon(url);
+};
+
+nextButton.onclick = () => {
+  const url = nextButton.getAttribute("data-url");
+  if (url) fetchPokemon(url);
+};
+
+// Initial fetch call
+fetchPokemon(endpoint);

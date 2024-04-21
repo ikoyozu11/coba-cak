@@ -4,12 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Halaman Anda</title>
+
+    <!-- Font Awesome -->
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css"
     />
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="assets/css/style-detailPokemon.css" />
   </head>
   <body>
+    <!-- Header -->
+    <div class="nav-container">
+      <header>
+        <label for="hamburger"><i class="fa-solid fa-bars"></i></label>
+        <input type="checkbox" id="hamburger" />
+        <div class="logo">
+          <img src="assets/img/logo-web.png" alt="Logo" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#" id="home-link">Home</a></li>
+            <li>
+              <a href="pokemon.html" class="active" id="pokemon-link"
+                >Pokemon</a
+              >
+            </li>
+            <li><a href="item.html" id="item-link">Item</a></li>
+            <li><a href="forum.html" id="forum-link">Forum</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col">
@@ -19,15 +47,24 @@
           </div>
         </div>
       </div>
-      <div class="row" id="pokemon-moves">
-        <!-- Moves will be displayed here -->
-      </div>
+      <div class="row" id="pokemon-moves"></div>
     </div>
-    <!-- <div id="spinner-container" class="spinner-container">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden"></span>
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="footer-menu">
+        <div class="footer-copyright">
+          <div>
+            <small>&copy; Copyright 2024</small>
+          </div>
+          <div>
+            <a href="">|</a>
+            <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#"><i class="fab fa-github fa-lg"></i></a>
+          </div>
+        </div>
       </div>
-    </div> -->
+    </footer>
+
     <script src="assets/javascript/detailPokemon.js"></script>
   </body>
 </html>

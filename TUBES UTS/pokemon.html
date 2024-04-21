@@ -4,50 +4,95 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hamburger Menu dengan Modal Pop Up</title>
-    <!-- Bootstrap CSS -->
+
+    <!-- Font Awesome -->
     <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="assets/css/style-pokemon.css" />
     <style>
-      /* CSS untuk spinner */
-      .spinner-container {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #fff;
+        border-bottom-color: #ff3d00;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        left: 100vh;
+        top: 50vh;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row mt-5" id="pokemon-list"></div>
-    </div>
-    <div id="spinner-container" class="spinner-container">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden"></span>
-      </div>
-    </div>
-    <div class="container text-center">
-      <div class="row justify-content-between">
-        <div class="col-2">
-          <button class="btn btn-primary" id="previous-button" type="button">
-            Previous
-          </button>
+    <!-- Header -->
+    <div class="nav-container">
+      <header>
+        <label for="hamburger">&#9776;</label>
+        <input type="checkbox" id="hamburger" />
+        <div class="logo">
+          <img src="assets/img/logo-web.png" alt="Logo" />
         </div>
-        <div class="col-2">
-          <button class="btn btn-primary" id="next-button" type="button">
-            Next
-          </button>
-        </div>
-      </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="homepage.html" id="home-link">Home</a>
+            </li>
+            <li>
+              <a href="pokemon.html" id="pokemon-link" class="active"
+                >Pokemon</a
+              >
+            </li>
+            <li><a href="item.html" id="item-link">Item</a></li>
+            <li><a href="forum.html" id="forum-link">Forum</a></li>
+          </ul>
+        </nav>
+      </header>
     </div>
 
-    <!-- jQuery dan Bootstrap Bundle JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Loader -->
+    <span class="loader" id="loader"></span>
+
+    <!-- Konten -->
+    <div class="container-pokemon" id="pokemon-list"></div>
+
+    <!-- Button -->
+    <div class="button">
+      <button id="previous-button">&laquo; Prev</button>
+      <button id="next-button">Next &raquo;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="footer-menu">
+        <div class="footer-copyright">
+          <div>
+            <small>&copy; Copyright 2024</small>
+          </div>
+          <div>
+            <a href="">|</a>
+            <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#"><i class="fab fa-github fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script -->
     <script src="assets/javascript/pokemon.js"></script>
   </body>
 </html>
