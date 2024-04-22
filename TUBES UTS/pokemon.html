@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hamburger Menu dengan Modal Pop Up</title>
+    <title>Pokemania</title>
+
+    <!-- icon favicon -->
+    <link
+      rel="shortcut icon"
+      href="assets/img/logo-32x32.png"
+      type="image/x-icon"
+    />
 
     <!-- Font Awesome -->
     <link
@@ -17,15 +24,25 @@
       .loader {
         width: 48px;
         height: 48px;
-        border: 5px solid #fff;
-        border-bottom-color: #ff3d00;
-        border-radius: 50%;
-        display: inline-block;
-        position: relative;
-        left: 100vh;
-        top: 50vh;
+        border: 5px solid #fff; /* White border for the circle except bottom */
+        border-bottom-color: #ff3d00; /* Different color for the bottom part */
+        border-radius: 50%; /* Makes it circular */
+        display: block; /* Changed from inline-block to block for better control */
+        position: relative; /* Changed from relative to fixed to position relative to the viewport */
+        left: 50%; /* Center horizontally */
+        top: 50vh; /* Center vertically */
+        transform: translate(-50%, -50%);
         box-sizing: border-box;
-        animation: rotation 1s linear infinite;
+        animation: rotation 1s linear infinite; /* Animation to rotate the loader */
+      }
+
+      .loader-hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .container-pokemon {
+        min-height: 100vh;
       }
 
       @keyframes rotation {
@@ -35,6 +52,49 @@
         100% {
           transform: rotate(360deg);
         }
+      }
+
+      .searchBar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      #pokemon-search::placeholder {
+        color: #707070;
+      }
+
+      #pokemon-search {
+        width: 50%;
+        height: 2.8rem;
+        background: #fffdfb;
+        outline: none;
+        border: 2px solid #ffcc80;
+        border-radius: 1.625rem;
+        padding: 0 3.5rem 0 1.5rem;
+        font-size: 1rem;
+        align-items: center;
+      }
+
+      #pokemon-search:focus {
+        transition: all 0.5s;
+        box-shadow: 0 0 40px #f9d442b9;
+        border-color: #f9d342;
+        outline: none;
+      }
+
+      #searchQuerySubmit {
+        width: 3.5rem;
+        height: 2.8rem;
+        margin-left: -3.5rem;
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      #searchQuerySubmit:hover {
+        cursor: pointer;
       }
     </style>
   </head>
@@ -62,6 +122,20 @@
           </ul>
         </nav>
       </header>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="searchBar">
+      <input
+        id="pokemon-search"
+        type="text"
+        name="pokemon-search"
+        placeholder="Masukkan nama atau id Pokémon (Contoh nama: Pikachu) (Contoh id: 25)"
+        value=""
+      />
+      <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
 
     <!-- Loader -->
@@ -92,7 +166,6 @@
       </div>
     </footer>
 
-    <!-- Script -->
-    <script src="assets/javascript/pokemon.js"></script>
+    <script src="assets/javascript/pokemon.js" defer></script>
   </body>
 </html>

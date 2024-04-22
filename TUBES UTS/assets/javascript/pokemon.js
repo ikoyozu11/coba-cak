@@ -1,71 +1,104 @@
-const endpoint = "https://pokeapi.co/api/v2/pokemon?limit=24";
-const spinnerContainer = document.getElementById("loader");
+const pokemonData = document.getElementById("pokemon-list");
+const pokemonSearch = document.getElementById("pokemon-search").value;
 const previousButton = document.getElementById("previous-button");
 const nextButton = document.getElementById("next-button");
-const pokemonListElement = document.getElementById("pokemon-list");
+const buttonSearch = document.getElementById("searchQuerySubmit");
 
-function fetchPokemon(url) {
-  spinnerContainer.style.display = "flex"; // Show loading spinner
-  fetch(url)
+function fetchPokemon(endpoint) {
+  fetch(endpoint)
     .then((response) => response.json())
     .then((data) => {
-      spinnerContainer.style.display = "none"; // Hide loading spinner when data is loaded
-      const pokemonDataArray = data.results;
+      const pokemonArray = data.results;
       const nextUrl = data.next;
       const previousUrl = data.previous;
 
-      previousButton.style.visibility = previousUrl ? "visible" : "hidden"; // Control visibility of previous button
-      nextButton.style.visibility = nextUrl ? "visible" : "hidden"; // Control visibility of next button
+      document.getElementById("previous-button").style.visibility = previousUrl
+        ? "visible"
+        : "hidden";
+      document.getElementById("next-button").style.visibility = nextUrl
+        ? "visible"
+        : "hidden";
 
-      // Store the URLs as data attributes of the buttons
       previousButton.setAttribute("data-url", previousUrl);
       nextButton.setAttribute("data-url", nextUrl);
 
-      // Fetch details for each Pokémon
       return Promise.all(
-        pokemonDataArray.map((pokemon) =>
-          fetch(pokemon.url).then((res) => res.json())
+        pokemonArray.map((pokemon) =>
+          fetch(pokemon.url).then((result) => result.json())
         )
       );
     })
     .then((pokemonDetails) => {
-      pokemonDetails.sort((a, b) => a.id - b.id); // Sort Pokémon by ID
-      showCards(pokemonDetails); // Display all Pokémon cards
+      showCards(pokemonDetails);
     })
     .catch((error) => {
-      console.error("Failed to fetch data:", error);
-      spinnerContainer.style.display = "none"; // Hide spinner in case of error
+      console.error("Terjadi masalah ketika mengambil data API:", error);
     });
 }
 
 function showCards(pokemonArray) {
-  pokemonListElement.innerHTML = ""; // Clear existing content
+  pokemonData.innerHTML = "";
   pokemonArray.forEach((pokemon) => {
-    let pokemonImage = pokemon.sprites.front_default;
-    let pokemonName = pokemon.name;
-    let pokemonId = pokemon.id;
-    pokemonListElement.innerHTML += `
-      <a href="detailPokemon.html?id=${pokemonId}" class="card-link">
-        <div class="card">
-          <img src="${pokemonImage}" alt="${pokemonName}" style="width: 150px">
-          <div class="container">
-            <h5>${pokemonName}</h5>
-          </div>
+    let id = pokemon.id;
+    let img = pokemon.sprites.front_default;
+    let name = pokemon.name;
+    pokemonData.innerHTML += `
+    <a href="detailPokemon.html?id=${id}" class="card-link">
+      <div class="card">
+        <img src="${img}" alt="${name}" style="width: 150px">
+        <div class="container">
+          <h5>${name}</h5>
         </div>
-      </a>`;
+      </div>
+    </a>`;
   });
 }
 
-// Event handlers for pagination
-previousButton.onclick = () => {
-  const url = previousButton.getAttribute("data-url");
-  if (url) fetchPokemon(url);
-};
+previousButton.addEventListener("click", function () {
+  const url = this.getAttribute("data-url");
+  fetchPokemon(url);
+});
 
-nextButton.onclick = () => {
-  const url = nextButton.getAttribute("data-url");
-  if (url) fetchPokemon(url);
-};
+nextButton.addEventListener("click", function () {
+  const url = this.getAttribute("data-url");
+  fetchPokemon(url);
+});
 
-// Initial fetch call
-fetchPokemon(endpoint);
+function setupSearch() {
+  const inputElement = document.getElementById("pokemon-search");
+  const button = document.querySelector(".search-container button");
+
+  // Adding an event listener to handle the Enter key press
+  inputElement.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent default form submission if part of a form
+      performSearch(inputElement.value); // Perform search based on the input's value
+    }
+  });
+
+  // Setup click event listener for the button
+  buttonSearch.addEventListener("click", function () {
+    performSearch(inputElement.value); // Perform search based on the input's value
+  });
+}
+
+function performSearch(query) {
+  if (query.trim() === "") return; // Optionally prevent search on empty query
+  console.log(query); // For debugging: log the query to the console
+  window.location.href = `detailPokemon.html?id=${encodeURIComponent(query)}`;
+}
+
+// Initialize the search functionality
+document.addEventListener("DOMContentLoaded", setupSearch);
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  loader.classList.add("loader-hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild("loader");
+  });
+});
+
+fetchPokemon(`https://pokeapi.co/api/v2/pokemon?limit=24`);
