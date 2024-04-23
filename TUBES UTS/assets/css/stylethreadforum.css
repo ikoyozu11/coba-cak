@@ -1,0 +1,249 @@
+:root {
+    --main-color: #ffd95c;
+    --main-color-hover: #e6c34f;
+    --dark-color: #2b2b2b;
+    --container-width: 1100px;
+    background-color: #fff9e6;
+}
+
+  * {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #fff9e6;
+}
+
+/* HEADER */
+.nav-container {
+    background: linear-gradient(to bottom, #ffe082 0%, #ffcc80 100%);
+    position: sticky;
+    z-index: 99999;
+    top: 0;
+}
+
+.nav-container header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.nav-container .logo img {
+    width: 180px;
+    padding-top: 10px;
+}
+
+.nav-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-container li a {
+    display: block;
+    font-weight: 900;
+    color: #323232;
+    padding: 0 1.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 60px;
+    line-height: 60px;
+}
+
+.nav-container li a.active {
+    color: #cb0303;
+    border-bottom: 5px solid #cb0303;
+}
+
+.nav-container li a:hover {
+    color: #707070;
+    transition: all 0.3s linear;
+    border-bottom: 5px solid #cb0303;
+}
+
+.nav-container.translucent {
+    background-image: linear-gradient(#ff9901ad, #ff7b00a0);
+}
+
+.nav-container header label,
+#hamburger {
+    display: none;
+}
+  /* END OF HEADER */
+
+/* THREAD FORUM */
+/* Global styles */
+a {
+    text-decoration: none;
+    color: #333; /* Changed link color */
+}
+
+h1, h4, ol {
+    margin: 0;
+}
+
+p {
+    margin: 5px 0;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #ccc; /* Added border */
+    padding: 5px; /* Added padding */
+    font-family: 'Poppins', sans-serif; /* Changed font */
+    row
+}
+
+button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px; /* Added padding */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+}
+
+/* Top bar styles */
+.top-bar {
+    padding: 10px 40px;
+    color: black; /* White text */
+    text-align: center; /* Centered text */
+}
+
+/* Main content styles */
+.main {
+     background-color: #fff9e6; /* Light gray background */
+    padding: 20px 40px; /* Increased padding */
+    border-radius: 10px; /* Rounded corners */
+    min-height: 100%;
+}
+
+/* Comments section styles */
+.comments {
+    margin: 30px 0; /* Adjusted margin */
+}
+
+.comment {
+    margin: 20px 0; /* Adjusted margin */
+    padding: 15px; /* Added padding */
+    background-color: #fff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+/* Comment metadata styles */
+.top-comment,
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777; /* Gray text */
+    font-size: 14px; /* Increased font size */
+}
+
+.timestamp {
+    padding-right: 10px;
+}
+
+/* Hover effect on buttons */
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+/* END OF THREAD FORUM */
+
+
+/* BUTTON */
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.button button {
+    margin: 6px 20px 6px 20px;
+    background-color: #e67e22;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 8px;
+    color: #ffffff;
+}
+
+.button button:hover {
+    background-color: #d35400;
+    cursor: pointer;
+}
+
+/* Additional CSS for Back button */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.back-button:hover {
+    background-color: #555; /* Darker background on hover */
+}
+  /* END BUTTON */
+
+  /* FOOTER */
+.footer-container {
+    position: relative;
+    bottom: 0;
+    margin-top: 1rem;
+    color: #ffffff;
+    background-color: #404040;
+    padding: 1rem 1rem;
+}
+
+.footer-container hr {
+    color: #323232;
+}
+
+.footer-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu {
+    max-width: var(--container-width);
+    margin: 0.5rem auto 0.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.footer-copyright {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.footer-copyright a {
+    margin-left: 0.5rem;
+}
+
+.footer-copyright a:hover {
+    text-decoration: none;
+}
+  /* END OF FOOTER */
+
