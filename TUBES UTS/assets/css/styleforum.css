@@ -1,155 +1,150 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  html{
-    display: flex;
-    
-  }
+  box-sizing: border-box;
+}
 
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background-color: #fff9e6;
-    width: 100%;
-    
-  }
+html {
+  display: flex;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff9e6;
+  width: 100%;
+}
 
 /* HEADER */
 .nav-container {
-    background: linear-gradient(to bottom, #ffe082 0%, #ffcc80 100%);
-    position: sticky;
-    z-index: 99999;
-    top: 0;
-  }
-  
-  .nav-container header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
-    height: 60px;
-    margin: 0 auto;
-  }
-  
-  .nav-container .logo img {
-    width: 180px;
-    padding-top: 10px;
-  }
-  
-  .nav-container ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .nav-container li a {
-    display: block;
-    font-weight: 900;
-    color: #323232;
-    padding: 0 1.1em;
-    text-decoration: none;
-    text-transform: uppercase;
-    height: 60px;
-    line-height: 60px;
-  }
-  
-  .nav-container li a.active {
-    color: #cb0303;
-    border-bottom: 5px solid #cb0303;
-  }
-  
-  .nav-container li a:hover {
-    color: #707070;
-    transition: all 0.3s linear;
-    border-bottom: 5px solid #cb0303;
-  }
-  
-  .nav-container.translucent {
-    background-image: linear-gradient(#ff9901ad, #ff7b00a0);
-  }
-  
-  .nav-container header label,
-  #hamburger {
-    display: none;
-  }
-  
-  /* END OF HEADER */
+  background: linear-gradient(to bottom, #ffe082 0%, #ffcc80 100%);
+  position: sticky;
+  z-index: 99999;
+  top: 0;
+}
 
+.nav-container header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.nav-container .logo img {
+  width: 180px;
+  padding-top: 10px;
+}
+
+.nav-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-container li a {
+  display: block;
+  font-weight: 900;
+  color: #323232;
+  padding: 0 1.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  height: 60px;
+  line-height: 60px;
+}
+
+.nav-container li a.active {
+  color: #cb0303;
+  border-bottom: 5px solid #cb0303;
+}
+
+.nav-container li a:hover {
+  color: #707070;
+  transition: all 0.3s linear;
+  border-bottom: 5px solid #cb0303;
+}
+
+.nav-container.translucent {
+  background-image: linear-gradient(#ff9901ad, #ff7b00a0);
+}
+
+.nav-container header label,
+#hamburger {
+  display: none;
+}
+
+/* END OF HEADER */
 
 /* POKEMON FORUM */
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f0; /* Light background color */
-    color: #333; /* Default text color */
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f0f0; /* Light background color */
+  color: #333; /* Default text color */
 }
 
 a {
-    text-decoration: none;
-    color: #ff6600; /* Vibrant orange for links */
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #ff6600; /* Vibrant orange for links */
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #cc3300; /* Darker orange on hover */
+  color: #cc3300; /* Darker orange on hover */
 }
 
 .top-bar {
-    padding: 10px 40px;
-    color: black; /* White text */
-    text-align: center; /* Centered text */
+  padding: 10px 40px;
+  color: black; /* White text */
+  text-align: center; /* Centered text */
 }
 
 .title-container {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .title-container h1 {
-    margin: 0;
-    font-size: 30px;
-    color: black; /* White text color for title */
+  margin: 0;
+  font-size: 30px;
+  color: black; /* White text color for title */
 }
 
-
 .main {
-    background-color: #ffffff; /* White background */
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff; /* White background */
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .row {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff9e6; /* Light yellow background for threads */
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease; /* Smooth transform animation */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff9e6; /* Light yellow background for threads */
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease; /* Smooth transform animation */
 }
 
 .row:hover {
-    transform: translateY(-5px); /* Lift on hover */
+  transform: translateY(-5px); /* Lift on hover */
 }
 
 .title {
-    font-size: 22px;
-    margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 .comment-count {
-    color: #ff6600; /* Orange for comments count */
-    font-weight: bold;
+  color: #ff6600; /* Orange for comments count */
+  font-weight: bold;
 }
 
 .timestamp {
-    color: #666; /* Dimmed timestamp color */
+  color: #666; /* Dimmed timestamp color */
 }
 /* END OF POKEMON FORUM */
-
 
 /* BUTTON */
 .button {
@@ -174,49 +169,49 @@ a:hover {
 
 /* FOOTER */
 .footer-container {
-    position: absolute;
-    bottom: 0;
-    left: 0; /* Adjusted */
-    min-width: 100%; /* Adjusted */
-    color: #ffffff;
-    background-color: #404040;
-    padding: 1rem 1rem;
+  position: relative;
+  bottom: 0;
+  left: 0; /* Adjusted */
+  min-width: 100%; /* Adjusted */
+  color: #ffffff;
+  background-color: #404040;
+  padding: 1rem 1rem;
 }
 
 .footer-container hr {
-    color: #323232;
+  color: #323232;
 }
 
 .footer-container a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .footer-container a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer-menu {
-    max-width: var(--container-width);
-    margin: 0.5rem auto 0.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0.5rem auto 0.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .footer-copyright {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .footer-copyright a {
-    margin-left: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .footer-copyright a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 /* END OF FOOTER */
