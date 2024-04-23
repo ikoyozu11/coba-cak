@@ -22,13 +22,22 @@ fetch(endpoint)
 function showCards(itemName, itemImage) {
   return `
   <a href="#"
-  <div class="col-lg-2 col-md-3 col-sm-4 mb-4">
     <div class="card">
-      <img src="${itemImage}" class="card-img-top mx-auto" alt="${itemName}" style="width: 150px">
+      <img src="${itemImage}"  alt="${itemName}" style="width: 150px">
       <div class="card-body">
-      <h5 class="text-center card-title">${itemName}</h5>
+      <h5">${itemName}</h5>
       </div>
     </div>
-  </div></a> 
+  </a> 
   `;
 }
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  loader.classList.add("loader-hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild("loader");
+  });
+});
