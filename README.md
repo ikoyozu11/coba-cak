@@ -6,8 +6,8 @@
 ```
 Ferry Oktariansyah - NIM [1203220006]
 Okky Rangga Pratama - NIM [1203220011]
-Gerrard Sebastian - NIM [1203220107]
-Ali Rafli Putra Hakiki - NIM [1203220018]
+Gerrard Sebastian - NIM [1203220018]
+Ali Rafli Putra Hakiki - NIM [1203220107]
 ```
 
 <hr>
