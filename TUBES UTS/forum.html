@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+        href="//fonts.googleapis.com/css?family=Poppins:thin,extra-light,light,100,200,300,400,500,600,700,800"
+        rel="stylesheet"
+        type="text/css"
+    /> -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet"
+    />
+    <link href="./assets/css/styleforum.css" rel="stylesheet" />
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="./assets/img/logo-32x32.png"
+    />
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/img/logo-16x16.png"
+    />
+    <title>PokeMania Forum</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="nav-container">
+        <header>
+            <label for="hamburger"><i class="fa-solid fa-bars"></i></label>
+            <input type="checkbox" id="hamburger" />
+            <div class="logo">
+                <img src="./assets/img/logo-web.png" alt="Logo" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./homepage.html" id="home-link">Home</a></li>
+                    <li><a href="./pokemon.html" id="pokemon-link">Pokemon</a></li>
+                    <li><a href="./item.html" id="item-link">Item</a></li>
+                    <li><a href="./forum.html" id="forum-link" class="active">Forum</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <!-- End Of Header -->
+
+    <!-- Main -->
+    <div class="main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="title-container">
+                <h1>PokeMania Forum</h1>
+            </div>
+        </div>
+        <!-- End of Top Bar -->
+        <ol id="thread-list">
+            <!-- Threads will be dynamically added here -->
+        </ol>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <div class="footer-menu">
+            <div class="footer-copyright">
+                <div>
+                    <small>&copy; Copyright 2024</small>
+                </div>
+                <div>
+                    <a href="">|</a>
+                    <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-github fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Database Processing -->
+    <script src="./assets/javascript/data.js"></script>
+    <script>
+        // Get reference to the thread list container
+        var threadListContainer = document.getElementById('thread-list');
+
+        // Loop through threads and add them to the thread list
+        threads.slice(0, 10).forEach(function(thread) {
+            var threadItem = document.createElement('li');
+            threadItem.classList.add('row');
+
+            var threadLink = document.createElement('a');
+            threadLink.href = "./threadforum.html?id=" + thread.id;
+
+            var titleHeader = document.createElement('h4');
+            titleHeader.classList.add('title');
+            titleHeader.textContent = thread.title;
+
+            var bottomDiv = document.createElement('div');
+            bottomDiv.classList.add('bottom');
+
+            var timestampPara = document.createElement('p');
+            timestampPara.classList.add('timestamp');
+            timestampPara.textContent = new Date(thread.date).toLocaleString();
+
+            var commentCountPara = document.createElement('p');
+            commentCountPara.classList.add('comment-count');
+            commentCountPara.textContent = thread.comments.length + " comments";
+
+            bottomDiv.appendChild(timestampPara);
+            bottomDiv.appendChild(commentCountPara);
+
+            threadLink.appendChild(titleHeader);
+            threadLink.appendChild(bottomDiv);
+
+            threadItem.appendChild(threadLink);
+
+            threadListContainer.appendChild(threadItem);
+        });
+    </script>
+
+</body>
+</html>
