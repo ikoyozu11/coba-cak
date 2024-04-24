@@ -26,7 +26,7 @@
     />
 
     <!-- My Style -->
-    <link rel="stylesheet" href="assets/css/style-pokemon.css" />
+    <link rel="stylesheet" href="assets/css/style-items.css" />
     <style>
       /* Loader Animation */
       .loader {
@@ -47,7 +47,7 @@
         opacity: 0;
         visibility: hidden;
       }
-      .container-pokemon {
+      .container-items {
         min-height: 100vh;
       }
       @keyframes rotation {
@@ -75,11 +75,9 @@
               <a href="index.html" id="home-link">Home</a>
             </li>
             <li>
-              <a href="pokemon.html" id="pokemon-link" class="active"
-                >Pokemon</a
-              >
+              <a href="pokemon.html" id="pokemon-link">Pokemon</a>
             </li>
-            <li><a href="items.html" id="item-link">Item</a></li>
+            <li><a href="items.html" id="item-link" class="active">Item</a></li>
             <li><a href="forum.html" id="forum-link">Forum</a></li>
           </ul>
         </nav>
@@ -89,10 +87,10 @@
     <!-- Search Bar -->
     <div class="searchBar">
       <input
-        id="pokemon-search"
+        id="items-search"
         type="text"
-        name="pokemon-search"
-        placeholder="Masukkan nama Pokémon (Contoh: pikachu)"
+        name="items-search"
+        placeholder="Masukkan nama Items (Contoh: poke-ball)"
         value=""
       />
       <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
@@ -104,7 +102,7 @@
     <span class="loader" id="loader"></span>
 
     <!-- Konten -->
-    <div class="container-pokemon" id="pokemon-list"></div>
+    <div class="container-items" id="items-list"></div>
 
     <!-- Button -->
     <div class="button">
@@ -128,7 +126,7 @@
       </div>
     </footer>
 
-    <script src="assets/javascript/pokemon.js" defer></script>
+    <script src="assets/javascript/items.js" defer></script>
     <script>
       window.addEventListener("scroll", function () {
         var header = document.querySelector(".nav-container");

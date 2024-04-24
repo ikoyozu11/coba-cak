@@ -1,3 +1,17 @@
+/* Variabel Color */
+:root {
+  --main-color: #fff9e6;
+  --second-color: #ffe082;
+  --third-color: #ffcc80;
+  --fourth-color: #404040;
+  --aksen-color: #e67e22;
+  --second-aksen-color: #d35400;
+  --main-font-color: #ffffff;
+  --second-font-color: #000000;
+  --third-font-color: #707070;
+  --fourth-font-color: #323232;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -72,7 +86,7 @@ body {
 
 /* CONTENT */
 .back-button {
-  margin: 6px 20px 6px 20px;
+  margin: 20px 0;
   background-color: #e67e22;
   border: none;
   border-radius: 10px;
@@ -89,6 +103,7 @@ body {
 }
 .container .container-top {
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* .container-top .detail {
@@ -108,7 +123,6 @@ body {
 .data {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .data table {
@@ -125,7 +139,11 @@ body {
 
 .stats {
   position: relative;
-  left: 25%;
+  left: 15%;
+}
+
+.stats h2 {
+  margin-bottom: 20px;
 }
 
 .stats ul {
@@ -162,3 +180,25 @@ body {
   transform: scaleX(0);
   transform-origin: left;
 } */
+
+.container-bottom .move {
+  background: linear-gradient(
+    to top,
+    var(--second-color) 0%,
+    var(--main-color) 100%
+  );
+  border: 1px solid #ffcc80; /* Mempertahankan border Oranye Lembut */
+  color: #000000; /* Abu-abu gelap untuk teks */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin: 10px;
+  /* border: 2px solid #ffcc80; */
+}
+.container-bottom .move:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  scale: 1.1;
+}
+.container-bottom h1 {
+  text-align: center;
+  margin: 20px 0;
+}

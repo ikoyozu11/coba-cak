@@ -39,11 +39,6 @@ function showDetail(pokemon) {
               <td>#${id}</td>
             </tr>
             <tr>
-              <td>Base Experience</td>
-              <td>:</td>
-              <td>${baseExperience}</td>
-            </tr>
-            <tr>
               <td>Weight</td>
               <td>:</td>
               <td>${weight}</td>
@@ -57,6 +52,11 @@ function showDetail(pokemon) {
               <td>Type</td>
               <td>:</td>
               <td>${types}</td>
+            </tr>
+            <tr>
+              <td>Base Experience</td>
+              <td>:</td>
+              <td>${baseExperience}</td>
             </tr>
             <tr>
               <td>Cries</td>

@@ -200,14 +200,17 @@ button:hover {
   /* END BUTTON */
 
   /* FOOTER */
-.footer-container {
+  .footer-container {
     position: relative;
     bottom: 0;
-    margin-top: 1rem;
+    left: 0; /* Adjusted */
+    min-width: 100%; /* Adjusted */
     color: #ffffff;
     background-color: #404040;
     padding: 1rem 1rem;
+    
 }
+
 
 .footer-container hr {
     color: #323232;

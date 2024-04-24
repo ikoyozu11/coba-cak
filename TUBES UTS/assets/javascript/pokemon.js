@@ -12,12 +12,12 @@ function fetchPokemon(endpoint) {
       const nextUrl = data.next;
       const previousUrl = data.previous;
 
-      document.getElementById("previous-button").style.visibility = previousUrl
-        ? "visible"
-        : "hidden";
-      document.getElementById("next-button").style.visibility = nextUrl
-        ? "visible"
-        : "hidden";
+      // document.getElementById("previous-button").style.visibility = previousUrl
+      //   ? "visible"
+      //   : "hidden";
+      // document.getElementById("next-button").style.visibility = nextUrl
+      //   ? "visible"
+      //   : "hidden";
 
       previousButton.setAttribute("data-url", previousUrl);
       nextButton.setAttribute("data-url", nextUrl);
@@ -32,7 +32,7 @@ function fetchPokemon(endpoint) {
       showCards(pokemonDetails);
     })
     .catch((error) => {
-      console.error("Terjadi masalah ketika mengambil data API:", error);
+      console.error("Terjadi masalah ketika mengambil data API: ", error);
     });
 }
 
@@ -45,7 +45,7 @@ function showCards(pokemonArray) {
     pokemonData.innerHTML += `
     <a href="detailPokemon.html?id=${id}" class="card-link">
       <div class="card">
-        <img src="${img}" alt="${name}" style="width: 150px">
+        <img src="${img}" alt="${name}">
         <div class="container">
           <h5>${name}</h5>
         </div>
