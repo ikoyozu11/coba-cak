@@ -1,48 +1,42 @@
 <body>
-  <div class="top-bar">
-    <h1>Pokemon Forum</h1>
-  </div>
-  <div class="main">
-    <div class="header">
-      <h4 class="title">
-        Thread 1
-        <!-- This will be dynamically updated -->
-      </h4>
-      <div class="bottom">
-        <p class="timestamp">
-          10/10/2024
-          <!-- This will be dynamically updated -->
-        </p>
-        <p class="comment-count">
-          4 Comments
-          <!-- This will be dynamically updated -->
-        </p>
-      </div>
+    <div class="top-bar">
+        <h1>
+            Pokemon Forum
+        </h1>
     </div>
-    <textarea></textarea>
-    <button>Add Comment</button>
-    <div class="comments">
-      <!-- Comments will be dynamically added here -->
+    <div class="main">
+        <div class="header">
+            <h4 class="title">
+                Thread 1 <!-- This will be dynamically updated -->
+            </h4>
+            <div class="bottom">
+                <p class="timestamp">
+                    10/10/2024 <!-- This will be dynamically updated -->
+                </p>
+                <p class="comment-count">
+                    4 Comments <!-- This will be dynamically updated -->
+                </p>
+            </div>
+        </div>
+        <textarea></textarea>
+        <button>Add Comment</button>
+        <div class="comments">
+            <!-- Comments will be dynamically added here -->
+        </div>
     </div>
-  </div>
 
-  <script src="./data.js"></script>
-  <script>
-    var id = window.location.search.slice(4); // Sliced to remove "?id="
-    var thread = threads.find((t) => t.id == id);
-    var header = document.querySelector(".header");
-    header.querySelector(".title").textContent = thread.title;
-    header.querySelector(".timestamp").textContent = new Date(
-      thread.date
-    ).toLocaleString();
-    header.querySelector(
-      ".comment-count"
-    ).textContent = `${thread.comments.length} comments`;
+    <script src="./data.js"></script>
+    <script>
+        var id = window.location.search.slice(4); // Sliced to remove "?id="
+        var thread = threads.find(t => t.id == id);
+        var header = document.querySelector('.header');
+        header.querySelector('.title').textContent = thread.title;
+        header.querySelector('.timestamp').textContent = new Date(thread.date).toLocaleString();
+        header.querySelector('.comment-count').textContent = `${thread.comments.length} comments`;
 
-    function addComment(comment) {
-      var commentsContainer = document.querySelector(".comments");
-      console.log(comment.author);
-      var commentHtml = `
+        function addComment(comment){
+            var commentsContainer = document.querySelector('.comments');
+            var commentHtml = `
                 <div class="comment">
                     <div class="top-comment">
                         <p class="user">
@@ -57,89 +51,87 @@
                     </div>
                 </div>
             `;
-      commentsContainer.insertAdjacentHTML("beforeend", commentHtml);
-    }
+            commentsContainer.insertAdjacentHTML('beforeend', commentHtml);
+        }
 
-    for (let comment of thread.comments) {
-      addComment(comment);
-    }
+        for (let comment of thread.comments){
+            addComment(comment);
+        }
 
-    var btn = document.querySelector("button");
-    btn.addEventListener("click", function () {
-      var txt = document.querySelector("textarea");
-      var comment = {
-        content: txt.value,
-        date: Date.now(), // Fixed syntax error
-        author: "Aaron", // Fixed syntax error
-      };
-      addComment(comment);
-      txt.value = "";
-      thread.comments.push(comment);
-      localStorage.setItem("threads", JSON.stringify(threads));
-    });
-  </script>
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            var txt = document.querySelector('textarea');
+            var comment = {
+                content: txt.value,
+                date: Date.now(), // Fixed syntax error
+                author: 'Aaron' // Fixed syntax error
+            };
+            addComment(comment);
+            txt.value = '';
+            thread.comments.push(comment);
+            localStorage.setItem('threads', JSON.stringify(threads));
+        });
 
-  <style>
-    body {
-      margin: 10px 60px;
-    }
+    </script>
 
-    a {
-      text-decoration: none;
-      color: black;
-    }
+        <style>
+            body{
+                margin: 10px 60px;
+            }
+    
+            a{
+                text-decoration: none;
+                color: black;
+            }
+    
+            h1, h4, ol{
+                margin: 0;
+            }
+    
+            p{
+                margin: 5px 0;
+            }
 
-    h1,
-    h4,
-    ol {
-      margin: 0;
-    }
+            textarea{
+                width: 80%;
+                height: 80px;
+            }
 
-    p {
-      margin: 5px 0;
-    }
+            button{
+                display: block;
+                margin: 10px 0;
+            }
+    
+            .top-bar{
+                background-color: skyblue;
+                padding: 0 40px;
+            }
+    
+            .main{
+                background-color: #F6F6EF;
+                padding: 10px 40px;
+            }
 
-    textarea {
-      width: 80%;
-      height: 80px;
-    }
+            .comments{
+                margin: 40px 0;
+            }
 
-    button {
-      display: block;
-      margin: 10px 0;
-    }
-
-    .top-bar {
-      background-color: skyblue;
-      padding: 0 40px;
-    }
-
-    .main {
-      background-color: #f6f6ef;
-      padding: 10px 40px;
-    }
-
-    .comments {
-      margin: 40px 0;
-    }
-
-    .comment {
-      margin: 10px 0;
-    }
-
-    .row {
-      padding: 5px 0;
-    }
-
-    .bottom,
-    top-comment {
-      display: flex;
-      color: grey;
-      font-size: 12px;
-    }
-
-    .timestamp {
-      padding-right: 10px;
-    }
-  </style>
+            .comment{
+                margin: 10px 0;
+            }
+    
+            .row{
+                padding: 5px 0;
+            }
+    
+            .bottom, top-comment{
+                display: flex;
+                color: grey;
+                font-size: 12px;
+            }
+    
+            .timestamp{
+                padding-right: 10px;
+            }
+        </style>
 </body>

@@ -201,9 +201,10 @@ button:hover {
 
   /* FOOTER */
 .footer-container {
-    position: relative;
+    position: absolute;
     bottom: 0;
-    margin-top: 1rem;
+    left: 0; /* Adjusted */
+    min-width: 100%; /* Adjusted */
     color: #ffffff;
     background-color: #404040;
     padding: 1rem 1rem;
